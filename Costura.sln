@@ -1,16 +1,11 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Costura", "Costura\Costura.csproj", "{F4870A6E-7408-4CED-9F4A-E06DB0C95833}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosturaTests", "CosturaTests\CosturaTests.csproj", "{FEC68C39-DA66-4863-AB98-A94D5F369040}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EmbedTestAssemblies", "EmbedTestAssemblies", "{662BB847-AC16-4C02-AA1B-14E716B7E4EB}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NugetProject", "NuGet\NugetProject.csproj", "{8C038EF3-F69F-4081-B46D-AE83B8803787}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FEC68C39-DA66-4863-AB98-A94D5F369040} = {FEC68C39-DA66-4863-AB98-A94D5F369040}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosturaVSPackage", "CosturaVSPackage\CosturaVSPackage.csproj", "{38B5FF46-18A8-41A9-AE17-962766E29373}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -49,12 +44,6 @@ Global
 		{FEC68C39-DA66-4863-AB98-A94D5F369040}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FEC68C39-DA66-4863-AB98-A94D5F369040}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FEC68C39-DA66-4863-AB98-A94D5F369040}.Release|x86.ActiveCfg = Release|Any CPU
-		{8C038EF3-F69F-4081-B46D-AE83B8803787}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8C038EF3-F69F-4081-B46D-AE83B8803787}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8C038EF3-F69F-4081-B46D-AE83B8803787}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{8C038EF3-F69F-4081-B46D-AE83B8803787}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8C038EF3-F69F-4081-B46D-AE83B8803787}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8C038EF3-F69F-4081-B46D-AE83B8803787}.Release|x86.ActiveCfg = Release|Any CPU
 		{38B5FF46-18A8-41A9-AE17-962766E29373}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{38B5FF46-18A8-41A9-AE17-962766E29373}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38B5FF46-18A8-41A9-AE17-962766E29373}.Debug|x86.ActiveCfg = Debug|Any CPU

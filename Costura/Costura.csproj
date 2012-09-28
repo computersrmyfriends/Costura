@@ -107,8 +107,5 @@
     <Copy SourceFiles="$(TargetDir)Merged\$(TargetName).dll" DestinationFolder="$(SolutionDir)ForSample" />
     <Copy SourceFiles="$(TargetDir)Merged\$(TargetName).pdb" DestinationFolder="$(SolutionDir)ForSample" />
   </Target>
-  <UsingTask TaskName="PepitaGet.RestorePackagesTask" AssemblyFile="$(SolutionDir)Tools\PepitaGet.dll" />
-  <Target Name="BeforeBuild">
-    <PepitaGet.RestorePackagesTask />
-  </Target>
+  <Import Project="$(ProjectPath)\..\..\Tools\Pepita\PepitaGet.targets" />
 </Project>
