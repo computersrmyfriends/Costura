@@ -14,6 +14,7 @@ public class CosturaProjectInjector
     public bool? IncludeDebugSymbols;
     public string ProjectFile;
     public bool? DeleteReferences;
+    public bool? RunPostBuildEvents;
     XDocument xDocument;
 
     public void Execute()
@@ -35,6 +36,9 @@ public class CosturaProjectInjector
         {
             embedTask.Remove();
         }
+        var postBuild = target.BuildDescendants("Exec").FirstOrDefault();
+        if (postBuild != null)
+        { postBuild.Remove(); }
 
 
         var xAttributes = new List<XAttribute>();
@@ -60,7 +64,19 @@ public class CosturaProjectInjector
         {
             xAttributes.Add(new XAttribute("TargetPath", TargetPath));
         }
-        target.Add(new XElement(XDocumentExtensions.BuildNamespace + "Costura.EmbedTask", xAttributes.ToArray()));
+
+        if (RunPostBuildEvents != null)
+        {
+            target.Add(new XElement(XDocumentExtensions.BuildNamespace + "Costura.EmbedTask", xAttributes.ToArray())); 
+          
+        }
+        else
+        {
+            target.Add(new XElement(XDocumentExtensions.BuildNamespace + "Costura.EmbedTask", xAttributes.ToArray()));
+            XElement PostBuild = new XElement(XDocumentExtensions.BuildNamespace + "Exec", new XAttribute("Command", "$(PostBuildEvent)"));
+            target.Add(PostBuild);
+        }
+       
     }
 
 
@@ -71,6 +87,7 @@ public class CosturaProjectInjector
         if (target == null)
         {
             target = new XElement(XDocumentExtensions.BuildNamespace + "Target", new XAttribute("Name", "AfterBuild"));
+         
             xDocument.Root.Add(target);
         }
         return target;
