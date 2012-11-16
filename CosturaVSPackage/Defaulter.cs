@@ -9,6 +9,7 @@ public class Defaulter
         configureWindowModel.Overwrite = projectReader.Overwrite.GetValueOrDefault(true);
         configureWindowModel.IncludeDebugSymbols = projectReader.IncludeDebugSymbols.GetValueOrDefault(true);
         configureWindowModel.DeleteReferences = projectReader.DeleteReferences.GetValueOrDefault(true);
+        configureWindowModel.RunPostBuildEvents = projectReader.RunPostBuildEvents.GetValueOrDefault(false);
         configureWindowModel.DeriveTargetPathFromBuildEngine = projectReader.TargetPath == null;
         configureWindowModel.ToolsDirectory = GetValueOrDefault(projectReader.ToolsDirectory, @"$(SolutionDir)Tools\");
     }
@@ -45,7 +46,10 @@ public class Defaulter
         {
             projectInjector.DeleteReferences = false;
         }
-
+        if (!configureWindowModel.RunPostBuildEvents)
+        {
+            projectInjector.RunPostBuildEvents = false;
+        }
 
         if (configureWindowModel.MessageImportance != MessageImportance.Low)
         {

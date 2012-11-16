@@ -13,6 +13,7 @@ public class ProjectReader
     public bool? Overwrite;
     public bool? IncludeDebugSymbols;
     public bool? DeleteReferences;
+    public bool? RunPostBuildEvents;
 
     public ProjectReader(string projectFile)
     {
@@ -49,6 +50,7 @@ public class ProjectReader
             select new
                        {
                            TargetPath = (string) embedTask.Attribute("TargetPath"),
+                           RunPostBuildEvents = ToBool(embedTask.Attribute("RunPostBuildEvents")),
                            MessageImportance = ConvertToEnum((string) embedTask.Attribute("MessageImportance")),
                            Overwrite = ToBool(embedTask.Attribute("Overwrite")),
                            DeleteReferences = ToBool(embedTask.Attribute("DeleteReferences")),
@@ -61,6 +63,7 @@ public class ProjectReader
             return;
         }
         TargetPath = first.TargetPath;
+        RunPostBuildEvents = first.RunPostBuildEvents;
         MessageImportance = first.MessageImportance;
         Overwrite = first.Overwrite;
         IncludeDebugSymbols = first.IncludeDebugSymbols;

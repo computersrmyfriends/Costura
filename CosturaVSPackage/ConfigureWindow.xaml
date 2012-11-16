@@ -40,6 +40,7 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto"/>
+                        
                     </Grid.RowDefinitions>
                     <TextBlock Grid.ColumnSpan="2" HorizontalAlignment="Left" TextWrapping="Wrap">
                        This is the target assembly to be processed.<LineBreak/> 
@@ -70,6 +71,7 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <TextBlock VerticalAlignment="Top" >MessageImportance:</TextBlock>
                     <StackPanel Grid.Column="1"  >
@@ -83,6 +85,9 @@
                     <CheckBox Grid.Row="2" Grid.Column="1" IsChecked="{Binding Path=DeleteReferences}"/>
                     <TextBlock Grid.Row="3">Include Reference<LineBreak/>Debug Symbols:</TextBlock>
                     <CheckBox Grid.Row="3" Grid.Column="1" IsChecked="{Binding Path=IncludeDebugSymbols}"/>
+                    <TextBlock Grid.Row="4">Re-Run Post Build Events</TextBlock>
+
+                    <CheckBox Grid.Row="4" Grid.Column="1" IsChecked="{Binding Path=RunPostBuildEvents}"/>
                 </Grid>
             </TabItem>
             <TabItem Header="MoreInfo" >

@@ -91,6 +91,18 @@ public class ConfigureWindowModel : INotifyPropertyChanged
         }
     }
 
+    bool runPostBuildEvents;
+
+    public bool RunPostBuildEvents
+    {
+        get { return runPostBuildEvents; }
+        set
+        {
+            runPostBuildEvents = value;
+            OnPropertyChanged("RunPostBuildEvents");
+        }
+    }
+
 
     string version;
 
